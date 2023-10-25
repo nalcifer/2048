@@ -1,18 +1,19 @@
 class Boxes
 {
-public : 
+public:
 	int value;
 	int coordinate[2];
 
 	Boxes(int _value, int x, int y);
 
-	GetValue();
+	int GetValue();
 
-	SetValue(int _value);
+	void SetValue(int _value);
 
-	GetCoord();
-	
-	SetCoord(int x, int y);
+	int* GetCoord();
 
-	DisplayInformation();
-}
+	void SetCoord(int x, int y);
+
+	void DisplayInformation();
+
+};

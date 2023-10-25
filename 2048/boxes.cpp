@@ -1,4 +1,5 @@
 #include "boxes.h"
+#include <iostream>
 
 Boxes::Boxes(int _value, int x, int y)
 {

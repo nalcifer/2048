@@ -1,11 +1,14 @@
 #include "grid.h"
+#include <iostream>
+
+using namespace std;
 
 Grid::Grid()
 {
     i = 0;
     j = 0;
     k = 0;
-    tab[4][4] = { 0 };
+
 }
 
 void Grid::display()
