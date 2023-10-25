@@ -1,7 +1,22 @@
 #include <iostream>
+#include "grid.h"
 
 using namespace std;
 
+int main()
+{
+    Grid* pgrid = new Grid();
+
+    pgrid->display();
+
+    delete pgrid;
+    return 0;
+}
+
+
+
+
+/*
 int tab[4][4] = { 0 };
 
 
@@ -17,21 +32,26 @@ void display() {
 
         if (i < 4) {
             for (j = 0; j < 4; j++) {
+
+                
+
                 cout << "|  " << tab[i][j] << " ";
                 if (j == 3)
                     cout << "|" << endl;
+
+
             }
         }
-
     }
 }
+
 
 int main()
 {
     display();
     return 0;
 }
-
+*/
 
 /*
   ---- ---- ---- ----
