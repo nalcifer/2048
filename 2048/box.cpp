@@ -1,34 +1,34 @@
-#include "boxes.h"
+#include "box.h"
 #include <iostream>
 
-Boxes::Boxes(int _value, int x, int y)
+Box::Box(int _value, int x, int y) : value(_value)
 {
 	coordinate[0] = x;
 	coordinate[1] = y;
 }
 
-int Boxes::GetValue()
+int Box::GetValue()
 {
 	return value;
 }
 
-void Boxes::SetValue(int _value)
+void Box::SetValue(int _value)
 {
 	value = _value;
 }
 
-int* Boxes::GetCoord()
+int* Box::GetCoord()
 {
 	return coordinate;
 }
 
-void Boxes::SetCoord(int x, int y)
+void Box::SetCoord(int x, int y)
 {
 	coordinate[0] = x;
 	coordinate[1] = y;
 }
 
-void Boxes::DisplayInformation()
+void Box::DisplayInformation()
 {
 	std::cout << "Case Valeur : " << value << std::endl << " De coordonnée : " << std::endl << "  x : " << coordinate[0] << std::endl << "  y : " << coordinate[1];
 }

@@ -1,4 +1,5 @@
 #include "grid.h"
+#include "box.h"
 #include <iostream>
 
 using namespace std;
@@ -8,6 +9,7 @@ Grid::Grid()
     i = 0;
     j = 0;
     k = 0;
+
 
 }
 

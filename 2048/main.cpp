@@ -1,5 +1,6 @@
 #include <iostream>
 #include "grid.h"
+#include "box.h"
 
 using namespace std;
 

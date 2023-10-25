@@ -1,4 +1,4 @@
-#include <conio.h>
+/*#include <conio.h>
 
 #define KEY_UP 72
 #define KEY_DOWN 80
@@ -28,3 +28,4 @@ int main()
         }
     }
 }
+*/
