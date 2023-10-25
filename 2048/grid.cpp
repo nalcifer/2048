@@ -18,7 +18,8 @@ Grid::Grid()
 
             Box* box = new Box(0, m, n);
             tab[m][n] = box;
-            free_tab[m][n] = box;
+            
+            free_tab[m * 4 + n] = box;
 
         }
     }

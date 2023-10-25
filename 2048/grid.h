@@ -10,7 +10,7 @@ private :
 public :
 	
 	Box* tab[4][4];
-	Box* free_tab[4][4];
+	Box* free_tab[16];
 
 	Grid();
 
