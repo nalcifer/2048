@@ -8,7 +8,9 @@ private :
 	int k;
 
 public :
+	
 	Box* tab[4][4];
+	Box* free_tab[4][4];
 
 	Grid();
 

@@ -15,10 +15,11 @@ Grid::Grid()
     {
         for (int n = 0; n < 4; n++)
         {
-            Box* box = new Box(0, m, n);
 
+            Box* box = new Box(0, m, n);
             tab[m][n] = box;
-            //tab[m][n]->DisplayInformation();
+            free_tab[m][n] = box;
+
         }
     }
 }
