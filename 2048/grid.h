@@ -1,3 +1,5 @@
+class Box;
+
 class Grid
 {
 private :
@@ -6,7 +8,7 @@ private :
 	int k;
 
 public :
-	Box* tab[4][4]; 
+	Box* tab[4][4];
 
 	Grid();
 
@@ -17,6 +19,6 @@ public :
 
 tab de box ou tab d'adress de box
 
-comment on les init les box, boucle for ?
+comment on init les box, boucle for ?
 
 */

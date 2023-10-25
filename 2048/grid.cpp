@@ -6,11 +6,21 @@ using namespace std;
 
 Grid::Grid()
 {
+    
     i = 0;
     j = 0;
     k = 0;
 
+    for (int m = 0; m < 4; m++)
+    {
+        for (int n = 0; n < 4; n++)
+        {
+            Box* box = new Box(0, m, n);
 
+            tab[m][n] = box;
+            //tab[m][n]->DisplayInformation();
+        }
+    }
 }
 
 void Grid::display()
@@ -28,7 +38,7 @@ void Grid::display()
 
 
 
-                cout << "|  " << tab[i][j] << " ";
+                cout << "|  " << tab[i][j]->GetValue() << " ";
                 if (j == 3)
                     cout << "|" << endl;
 
