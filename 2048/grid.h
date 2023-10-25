@@ -15,7 +15,8 @@ public :
 	Grid();
 
 	void display();
-	int randomNum();
+	int randomNum(int offset, int range);
+	void addBox();
 	void debut();
 };
 

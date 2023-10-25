@@ -1,8 +1,13 @@
 #include "grid.h"
 #include "box.h"
 #include <iostream>
+#include <chrono>
+#include <thread>
 
 using namespace std;
+
+using namespace std::this_thread;
+using namespace std::chrono;
 
 Grid::Grid()
 {
@@ -50,15 +55,30 @@ void Grid::display()
     }
 }
 
-int Grid::randomNum() {
+int Grid::randomNum(int offset, int range) {
     srand(time(NULL));
-    int randNum = 1 + (rand() % 2);
-    randNum = randNum * 2;
-    cout << randNum << endl;
+    int randNum = offset + (rand() % range);
     return randNum;
+}
+
+
+void Grid::addBox()
+{
+    int randValue = randomNum(1, 2);
+    randValue = randValue * 2;
+    cout << randValue << endl;
+    int randBox = randomNum(0, 15);
+    cout << randBox << endl;
+    free_tab[randBox]->setValue(randValue);
+    sleep_until(system_clock::now() + seconds(1));
 }
 
 void Grid::debut()
 {
-    randomNum();
+
+    for (i = 0; i < 2; i++) {
+        addBox();
+        
+
+    }
 }

@@ -10,6 +10,8 @@ int main()
 
     pgrid->debut();
     pgrid->display();
+    pgrid->addBox();
+    pgrid->display();
 
     delete pgrid;
     return 0;
