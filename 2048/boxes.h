@@ -1,4 +1,4 @@
-Class Boxes
+class Boxes
 {
 public : 
 	int value;
