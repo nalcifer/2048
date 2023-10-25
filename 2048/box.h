@@ -6,14 +6,14 @@ public:
 
 	Box(int _value, int x, int y);
 
-	int GetValue();
+	int getValue();
 
-	void SetValue(int _value);
+	void setValue(int _value);
 
-	int* GetCoord();
+	int* getCoord();
 
-	void SetCoord(int x, int y);
+	void setCoord(int x, int y);
 
-	void DisplayInformation();
+	void displayInformation();
 
 };

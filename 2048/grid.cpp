@@ -38,7 +38,7 @@ void Grid::display()
 
 
 
-                cout << "|  " << tab[i][j]->GetValue() << " ";
+                cout << "|  " << tab[i][j]->getValue() << " ";
                 if (j == 3)
                     cout << "|" << endl;
 
@@ -46,4 +46,9 @@ void Grid::display()
             }
         }
     }
+}
+
+void Grid::debut()
+{
+
 }

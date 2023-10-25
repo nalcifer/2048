@@ -7,28 +7,28 @@ Box::Box(int _value, int x, int y) : value(_value)
 	coordinate[1] = y;
 }
 
-int Box::GetValue()
+int Box::getValue()
 {
 	return value;
 }
 
-void Box::SetValue(int _value)
+void Box::setValue(int _value)
 {
 	value = _value;
 }
 
-int* Box::GetCoord()
+int* Box::getCoord()
 {
 	return coordinate;
 }
 
-void Box::SetCoord(int x, int y)
+void Box::setCoord(int x, int y)
 {
 	coordinate[0] = x;
 	coordinate[1] = y;
 }
 
-void Box::DisplayInformation()
+void Box::displayInformation()
 {
 	std::cout << "Case Valeur : " << value << std::endl << " De coordonnée : " << std::endl << "  x : " << coordinate[0] << std::endl << "  y : " << coordinate[1];
 }
