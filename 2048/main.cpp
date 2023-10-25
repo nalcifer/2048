@@ -8,6 +8,7 @@ int main()
 {
     Grid* pgrid = new Grid();
 
+    pgrid->debut();
     pgrid->display();
 
     delete pgrid;

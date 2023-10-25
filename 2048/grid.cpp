@@ -48,7 +48,15 @@ void Grid::display()
     }
 }
 
+int Grid::randomNum() {
+    srand(time(NULL));
+    int randNum = 1 + (rand() % 2);
+    randNum = randNum * 2;
+    cout << randNum << endl;
+    return randNum;
+}
+
 void Grid::debut()
 {
-
+    randomNum();
 }

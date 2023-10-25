@@ -13,6 +13,7 @@ public :
 	Grid();
 
 	void display();
+	int randomNum();
 	void debut();
 };
 
