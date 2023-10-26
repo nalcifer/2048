@@ -15,6 +15,8 @@ int main()
     pgrid->display();
 
     pgrid->movement();
+    pgrid->display();
+
 
     delete pgrid;
     return 0;

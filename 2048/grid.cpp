@@ -81,7 +81,10 @@ void Grid::addBox()
     cout << randValue << endl;
     int randBox = randomNum(0, free_tab.size());
     cout << randBox << endl;
+    
     free_tab[randBox]->setValue(randValue);
+    free_tab[randBox]->setEmpty(false);
+
     remove(free_tab, randBox);
     sleep_until(system_clock::now() + seconds(1));
     cout << free_tab.size() << endl;
@@ -125,7 +128,12 @@ void Grid::movement()
     direction[0] = x;
     direction[1] = y;
 
-    cout << direction[0] << endl << direction[1] << endl;
+    cout << x;
+    
+    if (x == 1) {
+        moveUp();
+    }
+    //cout << direction[0] << endl << direction[1] << endl;
 }
 
 void Grid::moveUp() {
@@ -134,6 +142,10 @@ void Grid::moveUp() {
             if (tab[i][j]->getEmpty() == false) {
                 for (k = i; k >= 0; k--) {
                     if (tab[i - k][j]->getEmpty() == true) {
+                        
+                        Box* temp = tab[i - k][j];
+                        tab[i - k][j] = tab[i][j];
+                        tab[i][j] = temp;
 
                     }
                 }
@@ -141,3 +153,4 @@ void Grid::moveUp() {
         }
     }
 }
+
