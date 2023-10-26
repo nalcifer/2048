@@ -128,4 +128,16 @@ void Grid::movement()
     cout << direction[0] << endl << direction[1] << endl;
 }
 
+void Grid::moveUp() {
+    for (i = 1; i < 4; i++){
+        for (j = 0; j < 4; j++) {
+            if (tab[i][j]->getEmpty() == false) {
+                for (k = i; k >= 0; k--) {
+                    if (tab[i - k][j]->getEmpty() == true) {
 
+                    }
+                }
+            }
+        }
+    }
+}

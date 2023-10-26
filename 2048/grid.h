@@ -23,5 +23,6 @@ public:
 	void debut();
 	void getDirection();
 	void movement();
+	void moveUp();
 
 };
