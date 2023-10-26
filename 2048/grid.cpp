@@ -5,11 +5,18 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
+#include <algorithm>
+#include <iterator>
 
 using namespace std;
 
 using namespace std::this_thread;
 using namespace std::chrono;
+
+template <typename T>
+void remove(std::vector<T>& v, size_t index) {
+    v.erase(v.begin() + index);
+}
 
 Grid::Grid()
 {
@@ -35,7 +42,7 @@ Grid::Grid()
 
 void Grid::display()
 {
-    system("cls");
+    //system("cls");
 
     for (i = 0; i < 5; i++) {
 
@@ -72,10 +79,12 @@ void Grid::addBox()
     int randValue = randomNum(1, 2);
     randValue = randValue * 2;
     cout << randValue << endl;
-    int randBox = randomNum(0, 15);
+    int randBox = randomNum(0, free_tab.size());
     cout << randBox << endl;
     free_tab[randBox]->setValue(randValue);
+    remove(free_tab, randBox);
     sleep_until(system_clock::now() + seconds(1));
+    cout << free_tab.size() << endl;
 }
 
 void Grid::debut()
@@ -116,7 +125,7 @@ void Grid::movement()
     direction[0] = x;
     direction[1] = y;
 
-    //cout << direction[0] << endl << direction[1] << endl;
+    cout << direction[0] << endl << direction[1] << endl;
 }
 
 
