@@ -1,1 +1,3 @@
+enum Description;
 
+Description directionnalArrowInput();
