@@ -127,26 +127,26 @@ void Grid::movement()
     
     direction[0] = x;
     direction[1] = y;
-
-    cout << x;
     
     if (x == 1) {
         moveUp();
     }
-    //cout << direction[0] << endl << direction[1] << endl;
+    cout << direction[0] << endl << direction[1] << endl;
 }
 
 void Grid::moveUp() {
     for (i = 1; i < 4; i++){
         for (j = 0; j < 4; j++) {
             if (tab[i][j]->getEmpty() == false) {
-                for (k = i; k >= 0; k--) {
-                    if (tab[i - k][j]->getEmpty() == true) {
-                        
-                        Box* temp = tab[i - k][j];
+                cout << "i=" << i << "j=" << j << endl;
+                for (k = i; k > 0; k--) {
+                    cout << "k=" << k << endl;
+                    if (tab[i - k][j]->getEmpty() == false) {
+                        cout << "true" << endl; //ça passe pas dans la condition
                         tab[i - k][j] = tab[i][j];
-                        tab[i][j] = temp;
-
+                        /*Box* temp = tab[i - k][j];
+                        tab[i - k][j] = tab[i][j];
+                        tab[i][j] = temp;*/
                     }
                 }
             }
