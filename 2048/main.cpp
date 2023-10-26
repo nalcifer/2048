@@ -1,6 +1,7 @@
 #include <iostream>
 #include "grid.h"
 #include "box.h"
+#include "game.h"
 
 using namespace std;
 
@@ -12,6 +13,8 @@ int main()
     pgrid->display();
     pgrid->addBox();
     pgrid->display();
+
+    pgrid->movement();
 
     delete pgrid;
     return 0;

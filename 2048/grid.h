@@ -1,16 +1,19 @@
+#include <vector>
+
 class Box;
 
 class Grid
 {
-private :
+private:
 	int i;
 	int j;
 	int k;
 
-public :
-	
+public:
+	int x, y;
+
 	Box* tab[4][4];
-	Box* free_tab[16];
+	std::vector<Box*> free_tab;
 
 	Grid();
 
@@ -18,12 +21,7 @@ public :
 	int randomNum(int offset, int range);
 	void addBox();
 	void debut();
+	void getDirection();
+	void movement();
+
 };
-
-/*
-
-tab de box ou tab d'adress de box
-
-comment on init les box, boucle for ?
-
-*/

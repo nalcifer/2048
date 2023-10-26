@@ -1,5 +1,7 @@
 #include "grid.h"
 #include "box.h"
+#include "input.h"
+
 #include <iostream>
 #include <chrono>
 #include <thread>
@@ -11,7 +13,8 @@ using namespace std::chrono;
 
 Grid::Grid()
 {
-    
+    x = 0, y = 0;
+
     i = 0;
     j = 0;
     k = 0;
@@ -24,7 +27,7 @@ Grid::Grid()
             Box* box = new Box(0, m, n);
             tab[m][n] = box;
             
-            free_tab[m * 4 + n] = box;
+            free_tab.push_back(box);
 
         }
     }
@@ -32,6 +35,8 @@ Grid::Grid()
 
 void Grid::display()
 {
+    system("cls");
+
     for (i = 0; i < 5; i++) {
 
         for (k = 0; k < 4; k++) {
@@ -78,7 +83,40 @@ void Grid::debut()
 
     for (i = 0; i < 2; i++) {
         addBox();
-        
-
     }
 }
+
+void Grid::getDirection()
+{
+    int direction = directionnalArrowInput();
+    
+    switch (direction) 
+    {
+    case 0 :
+        x = 1;
+        break;
+    case 1:
+        x = -1;
+        break;
+    case 2:
+        y = 1;
+        break;
+    case 3:
+        y = -1;
+        break;
+    }
+}
+
+void Grid::movement()
+{
+    int direction[2];
+
+    getDirection();
+    
+    direction[0] = x;
+    direction[1] = y;
+
+    //cout << direction[0] << endl << direction[1] << endl;
+}
+
+
