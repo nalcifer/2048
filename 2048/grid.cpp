@@ -68,7 +68,6 @@ void Grid::display()
 }
 
 int Grid::randomNum(int offset, int range) {
-    srand(time(NULL));
     int randNum = offset + (rand() % range);
     return randNum;
 }
@@ -86,7 +85,6 @@ void Grid::addBox()
     free_tab[randBox]->setEmpty(false);
 
     remove(free_tab, randBox);
-    sleep_until(system_clock::now() + seconds(1));
     cout << free_tab.size() << endl;
 }
 
@@ -141,12 +139,11 @@ void Grid::moveUp() {
                 cout << "i=" << i << "j=" << j << endl;
                 for (k = i; k > 0; k--) {
                     cout << "k=" << k << endl;
-                    if (tab[i - k][j]->getEmpty() == false) {
-                        cout << "true" << endl; //ça passe pas dans la condition
-                        tab[i - k][j] = tab[i][j];
-                        /*Box* temp = tab[i - k][j];
-                        tab[i - k][j] = tab[i][j];
-                        tab[i][j] = temp;*/
+                    if (tab[i - k][j]->getEmpty() == true) {
+                        cout << "true" << endl;
+                        tab[i - k][j] ->setValue(tab[i][j]->getValue());
+                        tab[i][j]->setEmpty(true);
+                        tab[i][j]->setValue(0);
                     }
                 }
             }
@@ -154,3 +151,8 @@ void Grid::moveUp() {
     }
 }
 
+//void Grid::endGame() {
+//    if () {
+//        return;
+//    }
+//}

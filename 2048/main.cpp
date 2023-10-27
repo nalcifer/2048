@@ -7,6 +7,7 @@ using namespace std;
 
 int main()
 {
+    srand(time(NULL)); 
     Grid* pgrid = new Grid();
 
     pgrid->debut();

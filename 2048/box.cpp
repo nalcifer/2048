@@ -6,7 +6,7 @@ Box::Box(int _value, int x, int y) : value(_value)
 	coordinate[0] = x;
 	coordinate[1] = y;
 
-	is_empty = false;
+	is_empty = true;
 }
 
 int Box::getValue()
