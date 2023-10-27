@@ -42,7 +42,7 @@ Grid::Grid()
 
 void Grid::display()
 {
-    //system("cls");
+    system("cls");
 
     for (i = 0; i < 5; i++) {
 

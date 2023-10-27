@@ -8,18 +8,7 @@ using namespace std;
 int main()
 {
     srand(time(NULL)); 
-    Grid* pgrid = new Grid();
-
-    pgrid->debut();
-    pgrid->display();
-    pgrid->addBox();
-    pgrid->display();
-
-    pgrid->movement();
-    pgrid->display();
-
-
-    delete pgrid;
+    gameLoop();
     return 0;
 }
 
