@@ -129,6 +129,15 @@ void Grid::movement()
     if (x == 1) {
         moveUp();
     }
+    if (x == -1) {
+        moveDown();
+    }
+    if (y == 1) {
+        moveRight();
+    }
+    if (y == -1) {
+        moveLeft();
+    }
     cout << direction[0] << endl << direction[1] << endl;
 
     clearTab();
@@ -171,18 +180,18 @@ void Grid::moveUp() {
 }
 
 void Grid::moveDown() {
-    for (i = 1; i < 4; i++) {
+    for (i = 2; i >= 0; i--) {
         for (j = 0; j < 4; j++) {
             if (tab[i][j]->getEmpty() == false) {
-                for (k = i; k > 0; k--) {
-                    if (tab[i][j]->getValue() != 0 && tab[i - k][j]->getValue() == tab[i][j]->getValue()) {
-                        tab[i - k][j]->setValue(tab[i][j]->getValue() * 2);
+                for (k = (3 - i); k > 0; k--) {
+                    if (tab[i][j]->getValue() != 0 && tab[i + k][j]->getValue() == tab[i][j]->getValue()) {
+                        tab[i + k][j]->setValue(tab[i][j]->getValue() * 2);
                         tab[i][j]->setEmpty(true);
                         tab[i][j]->setValue(0);
                     }
-                    if (tab[i - k][j]->getEmpty() == true) {
-                        tab[i - k][j]->setValue(tab[i][j]->getValue());
-                        tab[i - k][j]->setEmpty(false);
+                    if (tab[i + k][j]->getEmpty() == true) {
+                        tab[i + k][j]->setValue(tab[i][j]->getValue());
+                        tab[i + k][j]->setEmpty(false);
                         tab[i][j]->setEmpty(true);
                         tab[i][j]->setValue(0);
                     }
