@@ -38,10 +38,10 @@ bool Box::getEmpty()
 void Box::setEmpty(bool _is_empty)
 {
 	is_empty = _is_empty;
-	if (is_empty == true)
+	/*if (is_empty == true)
 	{
 		setValue(0);
-	}
+	}*/
 }
 
 void Box::displayInformation()

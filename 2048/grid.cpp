@@ -20,8 +20,6 @@ void remove(std::vector<T>& v, size_t index) {
 
 Grid::Grid()
 {
-    x = 0, y = 0;
-
     i = 0;
     j = 0;
     k = 0;
@@ -42,7 +40,7 @@ Grid::Grid()
 
 void Grid::display()
 {
-    system("cls");
+    //system("cls");
 
     for (i = 0; i < 5; i++) {
 
@@ -88,7 +86,6 @@ void Grid::addBox()
 void Grid::debut()
 {
     for (i = 0; i < 2; i++) {
-        cout << "here " << endl;
         addBox();
     }
 }
@@ -96,7 +93,8 @@ void Grid::debut()
 void Grid::getDirection()
 {
     int direction = directionnalArrowInput();
-    
+    x = 0;
+    y = 0;
     switch (direction) 
     {
     case 0 :
@@ -161,6 +159,7 @@ void Grid::moveUp() {
                 for (k = i; k > 0; k--) {
                     if (tab[i][j]->getValue() != 0 && tab[i - k][j]->getValue() == tab[i][j]->getValue()) {
                         tab[i - k][j]->setValue(tab[i][j]->getValue() * 2);
+                        tab[i - k][j]->setEmpty(false);
                         tab[i][j]->setEmpty(true);
                         tab[i][j]->setValue(0);
                     }
@@ -169,6 +168,7 @@ void Grid::moveUp() {
                         tab[i - k][j]->setEmpty(false);
                         tab[i][j]->setEmpty(true);
                         tab[i][j]->setValue(0);
+                        break;
                     }
                 }
             }
@@ -243,7 +243,7 @@ void Grid::moveRight() {
 }
 
 //void Grid::endGame() {
-//    if () {
+//    if (free_tab.size ) {
 //        return;
 //    }
 //}
