@@ -86,12 +86,14 @@ void Grid::addBox()
 
     remove(free_tab, randBox);
     cout << free_tab.size() << endl;
+
+    clearTab();
 }
 
 void Grid::debut()
 {
-
     for (i = 0; i < 2; i++) {
+        cout << "here " << endl;
         addBox();
     }
 }
@@ -132,6 +134,20 @@ void Grid::movement()
     cout << direction[0] << endl << direction[1] << endl;
 }
 
+void Grid::clearTab()
+{
+    free_tab.clear();
+    for (i = 0; i < 4; i++)
+    {
+        for (j = 0; j < 4; j++)
+        {
+            if (tab[i][j]->getEmpty() == true)
+                free_tab.push_back(tab[i][j]);
+        }
+    }
+}
+
+
 void Grid::moveUp() {
     for (i = 1; i < 4; i++){
         for (j = 0; j < 4; j++) {
@@ -156,3 +172,4 @@ void Grid::moveUp() {
 //        return;
 //    }
 //}
+

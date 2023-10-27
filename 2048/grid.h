@@ -23,6 +23,7 @@ public:
 	void debut();
 	void getDirection();
 	void movement();
+	void clearTab();
 	void moveUp();
 
 };
