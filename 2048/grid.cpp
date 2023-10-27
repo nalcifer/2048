@@ -152,18 +152,79 @@ void Grid::moveUp() {
     for (i = 1; i < 4; i++) {
         for (j = 0; j < 4; j++) {
             if (tab[i][j]->getEmpty() == false) {
-                cout << "i=" << i << "j=" << j << endl;
                 for (k = i; k > 0; k--) {
-                    cout << "k=" << k << endl;
-                    if (tab[i - k][j]->getValue() == tab[i][j]->getValue()) {
-                        cout << "tab i-k j" << tab[i - k][j]->getValue() << "tab i j " << tab[i][j]->getValue() << endl;
-                        cout << "fusion" << endl;
+                    if (tab[i][j]->getValue() != 0 && tab[i - k][j]->getValue() == tab[i][j]->getValue()) {
                         tab[i - k][j]->setValue(tab[i][j]->getValue() * 2);
                         tab[i][j]->setEmpty(true);
                         tab[i][j]->setValue(0);
                     }
                     if (tab[i - k][j]->getEmpty() == true) {
-                        cout << "true" << endl;
+                        tab[i - k][j]->setValue(tab[i][j]->getValue());
+                        tab[i - k][j]->setEmpty(false);
+                        tab[i][j]->setEmpty(true);
+                        tab[i][j]->setValue(0);
+                    }
+                }
+            }
+        }
+    }
+}
+
+void Grid::moveDown() {
+    for (i = 1; i < 4; i++) {
+        for (j = 0; j < 4; j++) {
+            if (tab[i][j]->getEmpty() == false) {
+                for (k = i; k > 0; k--) {
+                    if (tab[i][j]->getValue() != 0 && tab[i - k][j]->getValue() == tab[i][j]->getValue()) {
+                        tab[i - k][j]->setValue(tab[i][j]->getValue() * 2);
+                        tab[i][j]->setEmpty(true);
+                        tab[i][j]->setValue(0);
+                    }
+                    if (tab[i - k][j]->getEmpty() == true) {
+                        tab[i - k][j]->setValue(tab[i][j]->getValue());
+                        tab[i - k][j]->setEmpty(false);
+                        tab[i][j]->setEmpty(true);
+                        tab[i][j]->setValue(0);
+                    }
+                }
+            }
+        }
+    }
+}
+
+void Grid::moveRight() {
+    for (i = 1; i < 4; i++) {
+        for (j = 0; j < 4; j++) {
+            if (tab[i][j]->getEmpty() == false) {
+                for (k = i; k > 0; k--) {
+                    if (tab[i][j]->getValue() != 0 && tab[i - k][j]->getValue() == tab[i][j]->getValue()) {
+                        tab[i - k][j]->setValue(tab[i][j]->getValue() * 2);
+                        tab[i][j]->setEmpty(true);
+                        tab[i][j]->setValue(0);
+                    }
+                    if (tab[i - k][j]->getEmpty() == true) {
+                        tab[i - k][j]->setValue(tab[i][j]->getValue());
+                        tab[i - k][j]->setEmpty(false);
+                        tab[i][j]->setEmpty(true);
+                        tab[i][j]->setValue(0);
+                    }
+                }
+            }
+        }
+    }
+}
+
+void Grid::moveLeft() {
+    for (i = 1; i < 4; i++) {
+        for (j = 0; j < 4; j++) {
+            if (tab[i][j]->getEmpty() == false) {
+                for (k = i; k > 0; k--) {
+                    if (tab[i][j]->getValue() != 0 && tab[i - k][j]->getValue() == tab[i][j]->getValue()) {
+                        tab[i - k][j]->setValue(tab[i][j]->getValue() * 2);
+                        tab[i][j]->setEmpty(true);
+                        tab[i][j]->setValue(0);
+                    }
+                    if (tab[i - k][j]->getEmpty() == true) {
                         tab[i - k][j]->setValue(tab[i][j]->getValue());
                         tab[i - k][j]->setEmpty(false);
                         tab[i][j]->setEmpty(true);

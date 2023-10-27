@@ -25,5 +25,8 @@ public:
 	void movement();
 	void clearTab();
 	void moveUp();
+	void moveDown();
+	void moveLeft();
+	void moveRight();
 
 };
