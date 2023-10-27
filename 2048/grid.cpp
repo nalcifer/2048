@@ -201,19 +201,19 @@ void Grid::moveDown() {
     }
 }
 
-void Grid::moveRight() {
-    for (i = 1; i < 4; i++) {
-        for (j = 0; j < 4; j++) {
+void Grid::moveLeft() {
+    for (i = 0; i < 4; i++) {
+        for (j = 1; j < 4; j++) {
             if (tab[i][j]->getEmpty() == false) {
-                for (k = i; k > 0; k--) {
-                    if (tab[i][j]->getValue() != 0 && tab[i - k][j]->getValue() == tab[i][j]->getValue()) {
-                        tab[i - k][j]->setValue(tab[i][j]->getValue() * 2);
+                for (k = j; k > 0; k--) {
+                    if (tab[i][j]->getValue() != 0 && tab[i][j - k]->getValue() == tab[i][j]->getValue()) {
+                        tab[i][j - k]->setValue(tab[i][j]->getValue() * 2);
                         tab[i][j]->setEmpty(true);
                         tab[i][j]->setValue(0);
                     }
-                    if (tab[i - k][j]->getEmpty() == true) {
-                        tab[i - k][j]->setValue(tab[i][j]->getValue());
-                        tab[i - k][j]->setEmpty(false);
+                    if (tab[i][j - k]->getEmpty() == true) {
+                        tab[i][j - k]->setValue(tab[i][j]->getValue());
+                        tab[i][j - k]->setEmpty(false);
                         tab[i][j]->setEmpty(true);
                         tab[i][j]->setValue(0);
                     }
@@ -223,19 +223,19 @@ void Grid::moveRight() {
     }
 }
 
-void Grid::moveLeft() {
-    for (i = 1; i < 4; i++) {
-        for (j = 0; j < 4; j++) {
+void Grid::moveRight() {
+    for (i = 0; i < 4; i++) {
+        for (j = 2; j >= 0; j--) {
             if (tab[i][j]->getEmpty() == false) {
-                for (k = i; k > 0; k--) {
-                    if (tab[i][j]->getValue() != 0 && tab[i - k][j]->getValue() == tab[i][j]->getValue()) {
-                        tab[i - k][j]->setValue(tab[i][j]->getValue() * 2);
+                for (k = (3 - j); k > 0; k--) {
+                    if (tab[i][j]->getValue() != 0 && tab[i][j + k]->getValue() == tab[i][j]->getValue()) {
+                        tab[i][j + k]->setValue(tab[i][j]->getValue() * 2);
                         tab[i][j]->setEmpty(true);
                         tab[i][j]->setValue(0);
                     }
-                    if (tab[i - k][j]->getEmpty() == true) {
-                        tab[i - k][j]->setValue(tab[i][j]->getValue());
-                        tab[i - k][j]->setEmpty(false);
+                    if (tab[i][j + k]->getEmpty() == true) {
+                        tab[i][j + k]->setValue(tab[i][j]->getValue());
+                        tab[i][j + k]->setEmpty(false);
                         tab[i][j]->setEmpty(true);
                         tab[i][j]->setValue(0);
                     }
