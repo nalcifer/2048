@@ -86,8 +86,6 @@ void Grid::addBox()
 
     remove(free_tab, randBox);
     cout << free_tab.size() << endl;
-
-    clearTab();
 }
 
 void Grid::debut()
@@ -132,6 +130,8 @@ void Grid::movement()
         moveUp();
     }
     cout << direction[0] << endl << direction[1] << endl;
+
+    clearTab();
 }
 
 void Grid::clearTab()
