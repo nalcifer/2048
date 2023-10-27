@@ -42,7 +42,7 @@ Grid::Grid()
 
 void Grid::display()
 {
-    //system("cls");
+    system("cls");
 
     for (i = 0; i < 5; i++) {
 
@@ -77,15 +77,12 @@ void Grid::addBox()
 {
     int randValue = randomNum(1, 2);
     randValue = randValue * 2;
-    cout << randValue << endl;
     int randBox = randomNum(0, free_tab.size());
-    cout << randBox << endl;
     
     free_tab[randBox]->setValue(randValue);
     free_tab[randBox]->setEmpty(false);
 
     remove(free_tab, randBox);
-    cout << free_tab.size() << endl;
 }
 
 void Grid::debut()
