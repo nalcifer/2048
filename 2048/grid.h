@@ -28,5 +28,6 @@ public:
 	void moveDown();
 	void moveLeft();
 	void moveRight();
-
+	bool canMove();
+	bool endGame();
 };

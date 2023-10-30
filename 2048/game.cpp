@@ -10,7 +10,7 @@
 
 void gameLoop()
 {
-	bool is_finish = true;
+	bool is_finish = false;
 
     Grid* pgrid = new Grid();
 
@@ -23,7 +23,14 @@ void gameLoop()
         pgrid->addBox();
         pgrid->display();
 
-	} while (is_finish);
+        if (pgrid->canMove() == false)
+        {
+            is_finish = true;
+        }
+
+	} while (is_finish == false);
+
+    std::cout << "finish";
 
     delete pgrid;
 }

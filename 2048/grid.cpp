@@ -23,6 +23,8 @@ Grid::Grid()
     i = 0;
     j = 0;
     k = 0;
+    x = 0;
+    y = 0;
 
     for (int m = 0; m < 4; m++)
     {
@@ -63,6 +65,32 @@ void Grid::display()
             }
         }
     }
+
+    /*cout << endl << endl << endl << endl << endl;
+
+
+    for (i = 0; i < 5; i++) {
+
+        for (k = 0; k < 4; k++) {
+            cout << " ----";
+            if (k == 3)
+                cout << endl;
+        }
+
+        if (i < 4) {
+            for (j = 0; j < 4; j++) {
+
+
+
+                cout << "|  " << tab[i][j]->getEmpty() << " ";
+                if (j == 3)
+                    cout << "|" << endl;
+
+
+            }
+        }
+    }*/
+
 }
 
 int Grid::randomNum(int offset, int range) {
@@ -117,7 +145,7 @@ void Grid::movement()
     int direction[2];
 
     getDirection();
-    
+
     direction[0] = x;
     direction[1] = y;
     
@@ -159,9 +187,10 @@ void Grid::moveUp() {
                 for (k = i; k > 0; k--) {
                     if (tab[i][j]->getValue() != 0 && tab[i - k][j]->getValue() == tab[i][j]->getValue()) {
                         tab[i - k][j]->setValue(tab[i][j]->getValue() * 2);
-                        tab[i - k][j]->setEmpty(false);
+                        tab[i - k][j]->setEmpty(true);
                         tab[i][j]->setEmpty(true);
                         tab[i][j]->setValue(0);
+                        break;
                     }
                     if (tab[i - k][j]->getEmpty() == true) {
                         tab[i - k][j]->setValue(tab[i][j]->getValue());
@@ -183,14 +212,17 @@ void Grid::moveDown() {
                 for (k = (3 - i); k > 0; k--) {
                     if (tab[i][j]->getValue() != 0 && tab[i + k][j]->getValue() == tab[i][j]->getValue()) {
                         tab[i + k][j]->setValue(tab[i][j]->getValue() * 2);
+                        tab[i + k][j]->setEmpty(false);
                         tab[i][j]->setEmpty(true);
                         tab[i][j]->setValue(0);
+                        break;
                     }
                     if (tab[i + k][j]->getEmpty() == true) {
                         tab[i + k][j]->setValue(tab[i][j]->getValue());
                         tab[i + k][j]->setEmpty(false);
                         tab[i][j]->setEmpty(true);
                         tab[i][j]->setValue(0);
+                        break;
                     }
                 }
             }
@@ -205,14 +237,17 @@ void Grid::moveLeft() {
                 for (k = j; k > 0; k--) {
                     if (tab[i][j]->getValue() != 0 && tab[i][j - k]->getValue() == tab[i][j]->getValue()) {
                         tab[i][j - k]->setValue(tab[i][j]->getValue() * 2);
+                        tab[i][j - k]->setEmpty(false);
                         tab[i][j]->setEmpty(true);
                         tab[i][j]->setValue(0);
+                        break;
                     }
                     if (tab[i][j - k]->getEmpty() == true) {
                         tab[i][j - k]->setValue(tab[i][j]->getValue());
                         tab[i][j - k]->setEmpty(false);
                         tab[i][j]->setEmpty(true);
                         tab[i][j]->setValue(0);
+                        break;
                     }
                 }
             }
@@ -227,14 +262,17 @@ void Grid::moveRight() {
                 for (k = (3 - j); k > 0; k--) {
                     if (tab[i][j]->getValue() != 0 && tab[i][j + k]->getValue() == tab[i][j]->getValue()) {
                         tab[i][j + k]->setValue(tab[i][j]->getValue() * 2);
+                        tab[i][j + k]->setEmpty(false);
                         tab[i][j]->setEmpty(true);
                         tab[i][j]->setValue(0);
+                        break;
                     }
                     if (tab[i][j + k]->getEmpty() == true) {
                         tab[i][j + k]->setValue(tab[i][j]->getValue());
                         tab[i][j + k]->setEmpty(false);
                         tab[i][j]->setEmpty(true);
                         tab[i][j]->setValue(0);
+                        break;
                     }
                 }
             }
@@ -242,9 +280,47 @@ void Grid::moveRight() {
     }
 }
 
-//void Grid::endGame() {
-//    if (free_tab.size ) {
-//        return;
-//    }
-//}
+bool Grid::canMove() {
+    if (free_tab.size() == 0) {
+        for (i = 0; i < 3; i++) {
+            for (j = 0; j < 4; j++) {
+                
+                if (tab[i][j]->getValue() == tab[i + 1][j]->getValue()) {
+                    cout << "true" << endl;
+                    return true;
+                }
+            }
+        }
+        for (i = 0; i < 4; i++) {
+            for (j = 0; j < 3; j++) {
+                if (tab[i][j]->getValue() == tab[i][j+1]->getValue()) {
+                    return true;
+                }
+            }
+        }
+        cout << "false" << endl;
+        return false;
+
+        //for (i = 0; i < 4; i++) {
+        //    for (j = 0; j < 4; j++)
+        //    {
+        //        if (i - 1 >= 0 && tab[i][j]->getValue() != tab[i - 1][j]->getValue() ||
+        //            i + 1 <= 3 && tab[i][j]->getValue() != tab[i + 1][j]->getValue() ||
+        //            j - 1 >= 0 && tab[i][j]->getValue() != tab[i][j - 1]->getValue() ||
+        //            j + 1 <= 3 && tab[i][j]->getValue() != tab[i][j + 1]->getValue()
+        //            ) {
+
+        //            return false;
+
+        //        }
+        //    }
+        //}
+    }
+}
+
+
+
+bool Grid::endGame() {
+    return true;
+}
 
