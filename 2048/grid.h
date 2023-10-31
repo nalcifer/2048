@@ -32,5 +32,6 @@ public:
 	bool moveRight();
 
 	bool canMove();
-	bool endGame();
+	bool restart();
+	void endGame();
 };

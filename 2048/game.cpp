@@ -25,7 +25,19 @@ void gameLoop()
 
         if (pgrid->canMove() == false)
         {
-            is_finish = true;
+            if (pgrid->restart() == true)
+            {
+                delete pgrid;
+
+                Grid* pgrid = new Grid();
+
+                pgrid->debut();
+                pgrid->display();
+            }
+            else {
+                is_finish = true;
+                endgame();
+            }
         }
 
 	} while (is_finish == false);

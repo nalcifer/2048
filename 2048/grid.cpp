@@ -43,7 +43,7 @@ Grid::Grid()
 
 void Grid::display()
 {
-    //system("cls");
+    system("cls");
 
     for (i = 0; i < 5; i++) {
 
@@ -55,19 +55,28 @@ void Grid::display()
 
         if (i < 4) {
             for (j = 0; j < 4; j++) {
+                cout << "|";
 
 
+                if (tab[i][j]->getValue() < 1000)
+                    cout << " ";
 
-                cout << "|  " << tab[i][j]->getValue() << " ";
+                if (tab[i][j]->getValue() < 10)
+                    cout << " ";
+
+                cout << tab[i][j]->getValue();
+
+                if (tab[i][j]->getValue() < 100)
+                    cout << " ";
+
                 if (j == 3)
                     cout << "|" << endl;
-
 
             }
         }
     }
 
-    cout << endl << endl << endl << endl << endl;
+    /*cout << endl << endl << endl << endl << endl;
 
 
     for (i = 0; i < 5; i++) {
@@ -90,7 +99,7 @@ void Grid::display()
 
             }
         }
-    }
+    }*/
 
 }
 
@@ -155,16 +164,21 @@ void Grid::movement()
             moved = moveUp();
         }
         if (x == -1) {
-            moveDown();
+            moved = moveDown();
         }
         if (y == 1) {
-            moveRight();
+            moved = moveRight();
         }
         if (y == -1) {
-            moveLeft();
+            moved = moveLeft();
         }
+
+        if (moved == false) {
+            cout << "retry" << endl;
+        }
+
     } while (moved == false);
-    cout << direction[0] << endl << direction[1] << endl;
+    //cout << direction[0] << endl << direction[1] << endl;
 
     clearTab();
 }
@@ -328,7 +342,18 @@ bool Grid::canMove() {
 
 
 
-bool Grid::endGame() {
-    return true;
+bool Grid::restart() {
+    cout << endl << endl << "RESTART ?" << endl << "YES (up)" << endl << "NO (down)";
+    do {
+        getDirection();
+    } while (x == 0);
+
+    if (x == 1)
+        return true;
+    if (x == -1)
+        return false;
 }
 
+void Grid::endGame() {
+    cout << "Good job !!!";
+}
