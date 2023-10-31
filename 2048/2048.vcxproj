@@ -132,12 +132,14 @@
     <ClCompile Include="grid.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="box.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="grid.h" />
     <ClInclude Include="input.h" />
+    <ClInclude Include="test.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,10 +1,13 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
+#include <vector>
 
 #include "grid.h"
 #include "box.h"
 #include "input.h"
+#include "test.h"
+
 
 #include "game.h"
 
@@ -36,7 +39,7 @@ void gameLoop()
             }
             else {
                 is_finish = true;
-                endgame();
+                pgrid->endGame();
             }
         }
 

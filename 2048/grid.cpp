@@ -41,6 +41,27 @@ Grid::Grid()
     }
 }
 
+//Grid::Grid(int _tab[4][4])
+//{
+//    i = 0;
+//    j = 0;
+//    k = 0;
+//    x = 0;
+//    y = 0;
+//    moved = false;
+//
+//    for (int m = 0; m < 4; m++)
+//    {
+//        for (int n = 0; n < 4; n++)
+//        {
+//            Box* box = new Box(_tab[m][n], m, n);
+//            tab[m][n] = box;
+//
+//            free_tab.push_back(box);
+//        }
+//    }
+//}
+
 void Grid::display()
 {
     system("cls");
@@ -217,6 +238,9 @@ bool Grid::moveUp() {
                     tab[i - k - 1][j]->setValue(tab[i - k][j]->getValue() * 2);
                     tab[i - k][j]->setEmpty(true);
                     tab[i - k][j]->setValue(0);
+                    if (tab[i - k - 1][j]->getValue() == 2048) {
+                        win();
+                    }
                     moved = true;
                     break;
                 }
@@ -247,6 +271,9 @@ bool Grid::moveDown() {
                     tab[i + k + 1][j]->setValue(tab[i + k][j]->getValue() * 2);
                     tab[i + k][j]->setEmpty(true);
                     tab[i + k][j]->setValue(0);
+                    if (tab[i + k + 1][j]->getValue() == 2048) {
+                        win();
+                    }
                     moved = true;
                     break;
                 }
@@ -277,6 +304,9 @@ bool Grid::moveLeft() {
                     tab[i][j - k - 1]->setValue(tab[i][j - k]->getValue() * 2);
                     tab[i][j - k]->setEmpty(true);
                     tab[i][j - k]->setValue(0);
+                    if (tab[i][j - k - 1]->getValue() == 2048) {
+                        win();
+                    }
                     moved = true;
                     break;
                 }
@@ -307,6 +337,9 @@ bool Grid::moveRight() {
                     tab[i][j + k + 1]->setValue(tab[i][j + k]->getValue() * 2);
                     tab[i][j + k]->setEmpty(true);
                     tab[i][j + k]->setValue(0);
+                    if (tab[i][j + k + 1]->getValue() == 2048){
+                        win();
+                    }
                     moved = true;
                     break;
                 }
@@ -357,3 +390,26 @@ bool Grid::restart() {
 void Grid::endGame() {
     cout << "Good job !!!";
 }
+
+void Grid::win() {
+    cout << "YOU WIN !!!!" << endl << endl;
+    restart();
+}
+
+
+
+//Test
+/*bool Grid::compareTab(int end_tab[4][4]) {
+
+    for (i = 0; i < 4; i++)
+    {
+        for (j = 0; j < 4; j++)
+        {
+            if (tab[i][j]->getValue() != end_tab[i][i])
+            {
+                return false;
+            }
+        }
+    }
+    return true;
+}*/

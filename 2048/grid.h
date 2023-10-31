@@ -17,6 +17,7 @@ public:
 	std::vector<Box*> free_tab;
 
 	Grid();
+	//Grid(int _tab[4][4]);
 
 	void display();
 	int randomNum(int offset, int range);
@@ -34,4 +35,7 @@ public:
 	bool canMove();
 	bool restart();
 	void endGame();
+	void win();
+
+	bool compareTab(int end_tab[4][4]);
 };
