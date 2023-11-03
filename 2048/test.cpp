@@ -29,7 +29,7 @@
 //		pgrid->moveRight();
 //		pgrid->display();
 //
-//		if (pgrid->compareTab(end_tab) == false) {
+//		if (pgrid->compareTab(end_tab) == true) {
 //			std::cout << "Test de deplacement et de fusion : Success" << std::endl;
 //		}
 //		else {
@@ -39,16 +39,57 @@
 //
 //		/*if (oGrid->compare(iEndTab)) {
 //			
-//	void win() {
-//		
-//	}
-//	void lose() {
-//		
-//	}
+//	void testWin() {
+//		int debut_tab[4][4] = {
+//			{ 0,0,0,0 },
+//			{ 0,0,0,0 },
+//			{ 0,0,0,0 },
+//			{ 1024,1024,0,0 }
+//			};
 //
-//	void compare_tab()
-//	{
+//		int end_tab[4][4] = { 
+//			{ 0,0,0,0 },
+//			{ 0,0,0,0 },
+//			{ 0,0,0,0 },
+//			{ 2048,2048,0,0 } 
+//		};
+// 
+//		Grid* pgrid = new Grid(debut_tab);
+//		pgrid->display();
+//		pgrid->moveLeft();
+//		pgrid->display();
 //
-//	}*/
+//		if (pgrid->compareTab(end_tab) == true) {
+//			std::cout << "Test de deplacement et de fusion : Success" << std::endl;
+//		}
+//		else {
+//			std::cout << "Test de deplacement et de fusion : Failure" << std::endl;
+//		};
+//	}
+//	void testLose() {
+//		int debut_tab[4][4] = {
+//			{ 4,2,4,2 },
+//			{ 2,4,2,4 },
+//			{ 4,2,4,2 },
+//			{ 2,4,2,4 }
+//			};
+//
+//		int end_tab[4][4] = {
+//			{ 4,2,4,2 },
+//			{ 2,4,2,4 },
+//			{ 4,2,4,2 },
+//			{ 2,4,2,4 }
+//			};
+// 
+//		Grid* pgrid = new Grid(debut_tab);
+//		pgrid->display();
+//
+//		if (pgrid->compareTab(end_tab) == true) {
+//			std::cout << "Test de deplacement et de fusion : Success" << std::endl;
+//		}
+//		else {
+//			std::cout << "Test de deplacement et de fusion : Failure" << std::endl;
+//		};
+//	}
 //
 //}

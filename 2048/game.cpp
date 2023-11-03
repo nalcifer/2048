@@ -1,16 +1,16 @@
 #include <iostream>
-#include <thread>
-#include <chrono>
-#include <vector>
 
 #include "grid.h"
 #include "box.h"
 #include "input.h"
 #include "test.h"
 
-
 #include "game.h"
 
+/***
+* METHOD
+*   gameLoop
+*/
 void gameLoop()
 {
 	bool is_finish = false;

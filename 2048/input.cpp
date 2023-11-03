@@ -15,7 +15,11 @@ enum Description {
     Left
 };
 
-
+/***
+* METHOD
+*
+* returning value relative to the player's keyboard input
+*/
 Description directionnalArrowInput()
 {
     bool badKey = true;
