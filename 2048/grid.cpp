@@ -3,6 +3,7 @@
 #include "grid.h"
 #include "box.h"
 #include "input.h"
+#include "test.h"
 
 
 
@@ -42,6 +43,32 @@ Grid::Grid()
             Box* box = new Box(0, m, n);
             tab[m][n] = box;
             
+            free_tab.push_back(box);
+
+        }
+    }
+}
+
+Grid::Grid(int _tab[4][4])
+{
+    i = 0;
+    j = 0;
+    k = 0;
+    x = 0;
+    y = 0;
+    moved = false;
+
+    for (int m = 0; m < 4; m++)
+    {
+        for (int n = 0; n < 4; n++)
+        {
+
+            Box* box = new Box(_tab[m][n], m, n);
+            if (_tab[m][n] != 0)
+                box->setEmpty(false);
+
+            tab[m][n] = box;
+
             free_tab.push_back(box);
 
         }
@@ -428,6 +455,7 @@ void Grid::endGame() {
 *   win
 */
 void Grid::win() {
+    display();
     cout << "YOU WIN !!!!" << endl << endl;
     restart();
 }
@@ -440,17 +468,17 @@ void Grid::win() {
 *
 * compare tab of integration tests
 */
-/*bool Grid::compareTab(int end_tab[4][4]) {
+bool Grid::compareTab(int end_tab[4][4]) {
 
     for (i = 0; i < 4; i++)
     {
         for (j = 0; j < 4; j++)
         {
-            if (tab[i][j]->getValue() != end_tab[i][i])
+            if (tab[i][j]->getValue() != end_tab[i][j])
             {
                 return false;
             }
         }
     }
     return true;
-}*/
+}

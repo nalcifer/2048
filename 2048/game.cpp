@@ -7,6 +7,8 @@
 
 #include "game.h"
 
+using namespace test;
+
 /***
 * METHOD
 *   gameLoop
@@ -14,6 +16,11 @@
 void gameLoop()
 {
 	bool is_finish = false;
+
+    //testFusion();
+    //testWin();
+    //testLose();
+
 
     Grid* pgrid = new Grid();
 

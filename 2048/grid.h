@@ -17,6 +17,7 @@ public:
 	std::vector<Box*> free_tab;
 
 	Grid();
+	Grid(int _tab[4][4]);
 	//Grid(int _tab[4][4]);
 
 	void display();
